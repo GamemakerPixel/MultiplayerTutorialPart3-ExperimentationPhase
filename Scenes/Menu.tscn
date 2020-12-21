@@ -1,0 +1,136 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://Assets/good times rg.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scripts/MenuButton.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Menu.gd" type="Script" id=3]
+
+[sub_resource type="StyleBoxEmpty" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "highlight"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 36, 50 ]
+}
+
+[sub_resource type="Animation" id=4]
+resource_name = "unhighlight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 50, 36 ]
+}
+
+[sub_resource type="DynamicFont" id=5]
+size = 36
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=6]
+resource_name = "highlight"
+length = 0.1
+step = 0.01
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 36, 50 ]
+}
+
+[sub_resource type="Animation" id=7]
+resource_name = "unhighlight"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:custom_fonts/font:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 50, 36 ]
+}
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Buttons" type="VBoxContainer" parent="."]
+margin_left = 100.0
+margin_top = 200.0
+margin_right = 924.0
+margin_bottom = 550.0
+custom_constants/separation = 17
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Host Game" type="Button" parent="Buttons"]
+margin_right = 824.0
+margin_bottom = 50.0
+rect_min_size = Vector2( 0, 50 )
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "Host"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="AnimationPlayer" parent="Buttons/Host Game"]
+anims/highlight = SubResource( 3 )
+anims/unhighlight = SubResource( 4 )
+
+[node name="Join Game" type="Button" parent="Buttons"]
+margin_top = 67.0
+margin_right = 824.0
+margin_bottom = 117.0
+rect_min_size = Vector2( 0, 50 )
+custom_styles/focus = SubResource( 1 )
+custom_fonts/font = SubResource( 5 )
+custom_colors/font_color = Color( 1, 1, 0, 1 )
+text = "Join"
+flat = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Anim" type="AnimationPlayer" parent="Buttons/Join Game"]
+anims/highlight = SubResource( 6 )
+anims/unhighlight = SubResource( 7 )
